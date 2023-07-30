@@ -8,47 +8,63 @@ services:
     container_name: api
     restart: always
     depends_on:
-      - db
+      db:
+        condition: service_healthy
     ports:
       - 3000:3000
     environment:
+      - APP_DB_DRIVER=mysql
       - APP_DB_HOST=db
+      - APP_DB_PORT=3306
+      - APP_DB_USER=my_user
+      - APP_DB_PASSWORD=my_password
+      - APP_DB_NAME=my_database
+      - APP_LOG_LEVEL=debug
+      - APP_HOST=:3000
+      - APP_ENV=prod
   frontend:
     build:
       context: ./frontend
       dockerfile: Dockerfile
       args:
         HOST: 0.0.0.0
-        PORT: 7000
+        PORT: 3000
         APP_BASE_API: http://localhost:3000
     container_name: frontend
     restart: always
     ports:
-      - 7000:7000
+      - 7000:3000
 
   migration:
     container_name: migration
+    restart: on-failure
     build:
       context: ./backend
       dockerfile: migrate.Dockerfile
-    volumes:
-      - ./backend/.env:/app/.env
     depends_on:
-      - db
+      db:
+        condition: service_healthy
     environment:
       - APP_DB_HOST=db
+      - APP_DB_PORT=3306
+      - APP_DB_USER=my_user
+      - APP_DB_PASSWORD=my_password
+      - APP_DB_NAME=my_database
 
   seed:
+    restart: on-failure
     container_name: seed
     build:
       context: ./backend
       dockerfile: seed.Dockerfile
-    volumes:
-      - ./backend/.env:/app/.env
     depends_on:
       - migration
     environment:
       - APP_DB_HOST=db
+      - APP_DB_PORT=3306
+      - APP_DB_USER=my_user
+      - APP_DB_PASSWORD=my_password
+      - APP_DB_NAME=my_database
 
   db:
     image: mysql:5.7.32
@@ -88,7 +104,7 @@ services:
     restart: always
     container_name: db
     healthcheck:
-      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
+      test: ['CMD', 'mysqladmin', 'ping', '-h', 'localhost', '--user=my_user', '--password=my_password']
       timeout: 20s
       retries: 10
       interval: 5s
