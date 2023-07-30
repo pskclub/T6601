@@ -1,0 +1,71 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: db
+  namespace: vote
+spec:
+  selector:
+    matchLabels:
+      name: db
+  serviceName: "db"
+  template:
+    metadata:
+      labels:
+        name: db
+    spec:
+      containers:
+        - name: db
+          image: mysql:5.7.32
+          args:
+            - "--ignore-db-dir=lost+found"
+            - "--default-authentication-plugin=mysql_native_password"
+            - "--character-set-server=utf8mb4"
+            - "--explicit-defaults-for-timestamp=1"
+            - "--collation-server=utf8mb4_unicode_ci"
+            - "--innodb-buffer-pool-size=1G"
+            - "--max-allowed-packet=1G"
+            - "--wait-timeout=28800"
+            - "--max-connections=65535"
+            - "--performance-schema=on"
+            - "--open-files-limit=65535"
+            - "--innodb-buffer-pool-size=1G"
+            - "--innodb-buffer-pool-instances=1"
+            - "--innodb-log-file-size=1G"
+            - "--innodb-flush-log-at-trx_commit=1"
+            - "--innodb-flush-method=O_DIRECT"
+            - "--innodb-file-per-table=ON"
+            - "--innodb-stats-on-metadata=OFF"
+            - "--innodb-thread-concurrency=0"
+            - "--innodb-doublewrite=1"
+          livenessProbe:
+            tcpSocket:
+              port: 3306
+            initialDelaySeconds: 30
+            timeoutSeconds: 1
+            periodSeconds: 300
+          readinessProbe:
+            tcpSocket:
+              port: 3306
+            initialDelaySeconds: 30
+            timeoutSeconds: 1
+            periodSeconds: 30
+            failureThreshold: 5
+          ports:
+            - name: db
+              containerPort: 3306
+          env:
+            - name: MYSQL_DATABASE
+              value: "vote"
+            - name: MYSQL_USER
+              value: "my_user"
+            - name: MYSQL_PASSWORD
+              value: "my_password"
+            - name: MYSQL_ROOT_PASSWORD
+              value: "my_password"
+          volumeMounts:
+            - mountPath: /var/lib/mysql
+              name: vol-data
+      volumes:
+        - name: vol-data
+          persistentVolumeClaim:
+            claimName: db

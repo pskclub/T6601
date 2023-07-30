@@ -1,0 +1,25 @@
+@layer base {
+  .display-heading {
+    @apply text-2xl text-dark font-medium font-display;
+  }
+
+  .page-heading {
+    @apply text-3xl text-dark font-semibold;
+  }
+
+  .topic-heading {
+    @apply text-2xl text-primary-900 font-bold;
+  }
+
+  .text-description {
+    @apply text-lg text-gray font-normal;
+  }
+
+  a {
+    @apply text-primary hover:text-primary-600;
+  }
+
+  body {
+    @apply text-black;
+  }
+}

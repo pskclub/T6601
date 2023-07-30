@@ -1,0 +1,17 @@
+@layer components {
+  .error {
+    @apply flex flex-col justify-center items-center text-center min-h-[250px] text-3xl text-danger;
+  }
+
+  .empty {
+    @apply flex justify-center items-center flex-col min-h-[250px] text-4xl text-gray-400;
+  }
+
+  .loader {
+    @apply flex justify-center items-center h-[300px] w-full;
+
+    .loader-spin {
+      @apply w-20 h-20 text-gray-200 animate-spin fill-primary;
+    }
+  }
+}

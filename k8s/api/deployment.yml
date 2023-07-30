@@ -1,0 +1,60 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api
+  namespace: vote
+spec:
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0
+      maxSurge: 1
+  selector:
+    matchLabels:
+      name: api
+  template:
+    metadata:
+      labels:
+        name: api
+    spec:
+      containers:
+        - name: api
+          image: pskclub/t6601-api:latest
+          imagePullPolicy: Always
+          livenessProbe:
+            tcpSocket:
+              port: 3000
+            initialDelaySeconds: 30
+            timeoutSeconds: 1
+            periodSeconds: 300
+          readinessProbe:
+            tcpSocket:
+              port: 3000
+            initialDelaySeconds: 30
+            timeoutSeconds: 1
+            periodSeconds: 30
+            failureThreshold: 5
+          ports:
+            - name: api
+              containerPort: 3000
+          env:
+            - name: APP_SERVICE
+              value: api
+            - name: APP_LOG_LEVEL
+              value: debug
+            - name: APP_HOST
+              value: ":3000"
+            - name: APP_DB_DRIVER
+              value: mysql
+            - name: APP_DB_USER
+              value: my_user
+            - name: APP_DB_PASSWORD
+              value: my_password
+            - name: APP_DB_HOST
+              value: db
+            - name: APP_DB_PORT
+              value: "3306"
+            - name: APP_DB_NAME
+              value: vote
+

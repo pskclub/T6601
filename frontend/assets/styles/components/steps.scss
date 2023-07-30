@@ -1,0 +1,51 @@
+@layer components {
+  .steps {
+    @apply w-full;
+
+    .steps-header {
+      @apply flex pb-[28px] select-none;
+
+      .step-item-wrapper {
+        @apply flex-1;
+
+        .step-item {
+          @apply flex items-center justify-center;
+
+          .step-item-line {
+            @apply w-full h-1 transition duration-200;
+          }
+
+          .step-item-body {
+            @apply w-5 h-5 mx-2 rounded-full flex relative;
+            @apply justify-center items-center flex-shrink-0 transition duration-100;
+
+            .body-icon {
+              @apply text-white text-sm transition;
+            }
+
+            .body-label {
+              @apply absolute top-[24px] text-xs md:text-sm text-gray whitespace-nowrap;
+            }
+          }
+        }
+      }
+    }
+
+    .step-panel {
+      @apply bg-white mt-4;
+      @apply rounded-10;
+    }
+  }
+
+  .current {
+    @apply bg-primary;
+  }
+
+  .completed {
+    @apply bg-primary;
+  }
+
+  .pending {
+    @apply bg-gray-border;
+  }
+}

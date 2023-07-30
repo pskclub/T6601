@@ -1,0 +1,5 @@
+@layer base {
+  textarea, input[type="text"], input[type="password"], input[type="email"], input[type="number"] {
+    @apply outline-none focus:outline-none focus-visible:outline-none  focus:border-none  border-none;
+  }
+}

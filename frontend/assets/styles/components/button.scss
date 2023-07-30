@@ -1,0 +1,103 @@
+@mixin btn($name, $bg, $ring, $text : 'text-light') {
+  .btn-#{$name} {
+    @apply #{$bg} text-light enabled:hover:#{$bg}-100 #{$ring} #{!important};
+  }
+  a.btn-#{$name} {
+    @apply hover:#{$bg}-100 #{!important};
+  }
+  .btn-#{$name}-outline {
+    @apply #{$ring} text-#{$name} #{!important};
+    @apply enabled:hover:#{$bg} enabled:hover:text-light #{!important};
+  }
+  a.btn-#{$name}-outline {
+    @apply hover:#{$bg} hover:text-light #{!important};
+  }
+  .btn-#{$name}-plain {
+    @apply #{$text} ring-0;
+    @apply enabled:hover:#{$bg}-50;
+  }
+  a.btn-#{$name}-plain {
+    @apply hover:#{$bg}-50;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex justify-center items-center rounded-md ring-1 ring-inset ring-gray-border px-6 py-2 whitespace-nowrap;
+    @apply bg-white h-10 text-base font-medium text-dark enabled:hover:bg-gray-fill select-none;
+    @apply disabled:opacity-40 disabled:cursor-not-allowed;
+
+    &.pill {
+      @apply rounded-full;
+    }
+
+    &.btn-icon {
+      @apply h-[40px] w-[40px] p-0;
+    }
+  }
+
+  @include btn(danger, bg-danger, ring-danger, text-danger);
+  @include btn(info, bg-info, ring-info, text-info);
+  @include btn(warning, bg-warning, ring-warning, text-warning);
+  @include btn(success, bg-success, ring-success, text-success);
+
+
+  .btn-primary {
+    @apply bg-primary text-light enabled:hover:bg-primary-600 ring-primary enabled:hover:ring-primary-600 hover:text-light;
+  }
+
+  a.btn-primary {
+    @apply hover:bg-primary-600 hover:ring-primary-600;
+  }
+
+
+  .btn-primary-outline {
+    @apply ring-primary text-primary;
+    @apply enabled:hover:bg-primary enabled:hover:text-light;
+  }
+
+  a.btn-primary-outline {
+    @apply hover:bg-primary hover:text-light;
+  }
+
+  .btn-primary-plain {
+    @apply text-primary ring-0;
+    @apply enabled:hover:bg-primary-200;
+  }
+
+  a.btn-primary-plain {
+    @apply hover:bg-primary-200;
+  }
+
+  .btn-min {
+    @apply md:min-w-[150px]
+  }
+
+  .btn-min-lg {
+    @apply md:min-w-[200px]
+  }
+
+  .btn-sm {
+    @apply h-8 text-xs;
+
+    &.btn-icon {
+      @apply h-[32px] w-[32px];
+    }
+  }
+
+  .btn-md {
+    @apply h-10 text-base;
+
+    &.btn-icon {
+      @apply h-[40px] w-[40px];
+    }
+  }
+
+  .btn-lg {
+    @apply h-14 text-lg;
+
+    &.btn-icon {
+      @apply h-[56px] w-[56px];
+    }
+  }
+}

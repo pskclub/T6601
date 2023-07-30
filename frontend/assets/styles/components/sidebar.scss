@@ -1,0 +1,21 @@
+@layer components {
+  .sidebar {
+    @apply fixed z-30 inset-y-0 left-0 w-64 transition duration-300 bg-white overflow-y-auto hidden lg:block;
+
+    .sidebar-item {
+      &.router-link-active {
+        @apply bg-primary text-light hover:bg-primary hover:text-light #{!important};
+      }
+    }
+
+    .sidebar-item-root {
+      &.router-link-exact-active {
+        @apply bg-white text-gray-900;
+      }
+
+      &.router-link-active {
+        @apply bg-white text-gray-900;
+      }
+    }
+  }
+}

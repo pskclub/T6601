@@ -1,0 +1,36 @@
+.form-control {
+  @apply relative appearance-none ring-0 px-4 ring-inset py-2 text-primary font-normal bg-white rounded-lg text-sm
+  placeholder-primary-100 min-h-[40px] focus:outline-none focus:ring-primary w-full disabled:cursor-not-allowed;
+
+  box-shadow: 0 0 15px 2px rgb(0 0 0 / 10%);
+
+  &[data-headlessui-state='open'] {
+    @apply ring-primary;
+  }
+
+  &.disabled {
+    @apply ring-gray-border bg-gray-fill;
+  }
+}
+
+.form-control-static {
+  @apply w-full block font-light text-gray py-2;
+}
+
+
+.textarea-max-counter {
+  @apply block text-right text-xs text-gray-disabled mt-1 font-light;
+}
+
+
+.prepend-icon {
+  @apply flex items-center justify-center h-[40px] px-3;
+}
+
+.append-icon {
+  @apply flex items-center justify-center h-[40px] px-4;
+}
+
+.copy-button{
+  @apply text-white bg-primary px-4 rounded-r-lg whitespace-nowrap flex items-center justify-center cursor-pointer select-none hover:bg-primary-600;
+}

@@ -1,0 +1,57 @@
+{
+	"info": {
+		"_postman_id": "5defaac0-65a4-478a-ab7c-2037504c1b72",
+		"name": "me",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26265981"
+	},
+	"item": [
+		{
+			"name": "/me/posts",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{TOKEN}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{BASE_API}}/me/posts",
+					"host": [
+						"{{BASE_API}}"
+					],
+					"path": [
+						"me",
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/me",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{TOKEN}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{BASE_API}}/me",
+					"host": [
+						"{{BASE_API}}"
+					],
+					"path": [
+						"me"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

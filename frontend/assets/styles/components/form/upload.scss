@@ -1,0 +1,16 @@
+@layer components {
+  .upload-file {
+    input {
+      @apply hidden;
+    }
+    .upload-file-wrapper {
+      @apply flex items-center gap-2;
+      .upload-file-name {
+        @apply line-clamp-1;
+      }
+      .upload-file-size {
+        @apply text-xs text-gray shrink-0;
+      }
+    }
+  }
+}

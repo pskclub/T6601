@@ -1,0 +1,17 @@
+@layer components {
+  .dialog {
+    @apply modal-sm;
+
+    .dialog-icon {
+      @apply w-16 h-16;
+    }
+
+    .dialog-title {
+      @apply text-xl font-medium text-dark;
+    }
+
+    .dialog-message {
+      @apply text-base text-gray font-normal whitespace-pre-line;
+    }
+  }
+}

@@ -1,0 +1,54 @@
+@layer components {
+  .select-box {
+    @apply relative;
+
+    &[data-headlessui-state='disabled'] {
+      @apply ring-gray-border bg-gray-fill;
+    }
+
+    .select-auto-complete-box {
+      @apply relative outline-none border-none w-full;
+    }
+
+    .select-listbox-button {
+      @apply w-full relative text-left;
+    }
+
+    .select-icons-box {
+      @apply pointer-events-none absolute inset-y-0 right-0 flex items-center;
+    }
+
+    .select-icons-button {
+      @apply absolute inset-y-0 right-0 flex items-center py-3 pr-3;
+    }
+
+    .select-icons-loading {
+      @apply h-5 w-5 text-gray;
+    }
+
+    .select-icons-down {
+      @apply h-5 w-5 text-gray;
+    }
+
+    .select-listbox-options {
+      @apply absolute left-0 z-30 mt-2 max-h-60 w-full overflow-auto rounded-md bg-white text-base ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm drop-shadow-md;
+    }
+
+    .select-no-options {
+      @apply relative cursor-default select-none py-2 px-4 text-gray-disabled;
+    }
+
+    .select-options {
+      @apply relative cursor-pointer select-none py-2 px-4;
+    }
+
+    .select-label {
+      @apply block truncate;
+    }
+
+    .select-label-disabled {
+      @apply block truncate text-gray-disabled;
+    }
+  }
+
+}

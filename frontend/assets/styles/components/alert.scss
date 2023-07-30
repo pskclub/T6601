@@ -1,0 +1,54 @@
+@layer components {
+  .alert {
+    @apply p-4 rounded items-center text-lg border-1 flex;
+
+    .alert-icon {
+      @apply mr-4 w-10;
+    }
+
+    .alert-title {
+        @apply font-bold;
+    }
+
+    &.alert-success {
+      @apply border-success bg-success-50;
+
+      .alert-title , .alert-icon {
+        @apply text-success-100;
+      }
+    }
+
+    &.alert-danger {
+      @apply border-danger bg-info-50;
+
+      .alert-title, .alert-icon  {
+        @apply text-info;
+      }
+    }
+
+    &.alert-info {
+      @apply border-info bg-info-50;
+
+      .alert-title , .alert-icon {
+        @apply text-info;
+      }
+    }
+
+    &.alert-warning {
+      @apply border-warning bg-warning-50;
+
+      .alert-title , .alert-icon {
+        @apply text-warning ;
+      }
+
+    }
+
+    .alert-body {
+      //  TODO :  Add styles here
+    }
+
+    .alert-text {
+      @apply text-sm text-black;
+    }
+  }
+}

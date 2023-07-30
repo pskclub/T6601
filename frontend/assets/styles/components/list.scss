@@ -1,0 +1,21 @@
+@layer components {
+  .list {
+    @apply bg-white rounded-10 border border-gray-border;
+
+    .list-header {
+      @apply p-4 bg-light rounded-t-10 text-base text-gray font-medium border-b;
+    }
+
+    .list-row {
+      @apply border-b border-b-gray-fill px-4 py-2 last:border-b-0;
+
+      > p {
+        @apply text-base font-light py-2;
+      }
+    }
+
+    .list-empty {
+      @apply h-60 flex items-center justify-center text-description;
+    }
+  }
+}

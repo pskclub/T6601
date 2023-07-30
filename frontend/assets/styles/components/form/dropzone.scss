@@ -1,0 +1,52 @@
+@layer components {
+  .dropzone {
+    @apply relative w-full p-8 bg-white transition rounded-lg flex items-center justify-center #{!important};
+    @apply border-2 border-dashed border-gray-border ring-0 #{!important};
+
+    .close-icon {
+      @apply cursor-pointer w-5 h-5 ml-2 text-gray absolute top-6 right-6;
+    }
+
+    input {
+      @apply hidden;
+    }
+
+    .dropzone-wrapper {
+      @apply flex flex-col items-center w-full;
+
+      .dropzone-preview {
+        @apply p-4 min-w-[3rem];
+      }
+
+      .dropzone-multi-preview {
+        @apply grid md:flex flex-wrap justify-center items-center gap-4 mb-6 w-full;
+
+        .dropzone-multi-item {
+          @apply border rounded-20 p-4 w-full md:basis-[32%] truncate;
+        }
+      }
+
+      .preview-img {
+        @apply flex justify-center mb-2;
+
+        img {
+          @apply w-32 object-cover;
+        }
+      }
+
+      .preview-file-name {
+        @apply flex items-center justify-center w-full;
+
+
+      }
+
+      .preview-file-info {
+        @apply text-center text-gray mt-2;
+      }
+
+      .dropzone-message {
+        @apply text-description mt-6 text-center font-light text-sm;
+      }
+    }
+  }
+}

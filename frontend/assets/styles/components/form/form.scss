@@ -1,0 +1,51 @@
+@import "input";
+@import "checkbox";
+@import "switch";
+@import "select";
+@import "dropzone";
+@import "datepicker";
+@import "upload";
+
+@layer components {
+  .fields {
+    .form-container {
+      @apply relative mb-4;
+    }
+
+    .form-inner-body {
+      @apply w-full relative;
+    }
+
+    .form-label {
+      @apply block text-gray text-sm font-normal mb-1;
+
+      // @apply peer-focus:text-primary;
+    }
+
+    .form-inner {
+      @apply flex flex-col relative;
+    }
+
+    .invalid-feedback {
+      @apply text-danger text-sm mt-2;
+    }
+
+    .required-feedback {
+      @apply text-danger ml-1;
+    }
+  }
+
+  .form {
+    .form-label {
+      // @apply peer-[.input-error]:text-danger peer-[.input-success]:text-success;
+    }
+
+    .input-error {
+      @apply ring-danger #{!important};
+    }
+
+    .input-success {
+      @apply enabled:ring-success #{!important};
+    }
+  }
+}

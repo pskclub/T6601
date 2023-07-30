@@ -1,0 +1,67 @@
+.vue-notification-wrapper {
+  @apply mt-4 pr-4 space-y-4 #{!important};
+}
+
+.vue-notification-group {
+  @apply w-[400px] #{!important};
+}
+
+.notification {
+  @apply py-4 px-6 rounded-10 border-[1px] flex justify-between;
+
+  .notification-title {
+    @apply font-bold text-base font-poppins #{!important};
+  }
+
+  .notification-title-inner {
+    @apply flex items-center #{!important};
+  }
+
+  .notification-content {
+    @apply text-sm text-gray font-poppins ml-[30px] #{!important};
+  }
+
+  .notification-icon {
+    @apply w-[20px] h-[20px];
+  }
+
+  .notification-icon-container {
+    @apply w-[30px];
+  }
+
+  .close {
+    @apply w-4 h-4 text-gray;
+  }
+
+  &.success {
+    @apply border-success bg-success-50;
+
+    .notification-title {
+      @apply text-success;
+    }
+  }
+
+  &.warning {
+    @apply border-warning bg-warning-50;
+
+    .notification-title {
+      @apply text-warning;
+    }
+  }
+
+  &.danger {
+    @apply border-danger bg-danger-50;
+
+    .notification-title {
+      @apply text-danger;
+    }
+  }
+
+  &.info {
+    @apply border-info bg-info-50;
+
+    .notification-title {
+      @apply text-info;
+    }
+  }
+}

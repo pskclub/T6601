@@ -1,0 +1,42 @@
+@layer components {
+  .tabs {
+    @apply w-full;
+
+    .tab-header {
+      @apply border-b bg-white select-none pt-4 flex flex-wrap;
+      @apply rounded-t-[10px];
+
+      .tab-header-container {
+        @apply overflow-x-auto whitespace-nowrap flex;
+
+        background: linear-gradient(to right, white 30%, rgb(255 255 255 / 0%)),
+          linear-gradient(to right, rgb(255 255 255 / 0%), white 70%) 100% 100%,
+          radial-gradient(farthest-side at 0 50%, rgb(0 0 0 / 20%), rgb(0 0 0 / 0%)),
+          radial-gradient(farthest-side at 100% 50%, rgb(0 0 0 / 20%), rgb(0 0 0 / 0%)) 100% 0;
+        background-size: 40px 100%, 40px 100%, 14px 100%, 14px 100%;
+
+        /* shared properties */
+        background-repeat: no-repeat;
+        background-attachment: local, local, scroll, scroll;
+      }
+
+      .tab-item {
+        @apply relative inline-block;
+
+        > .tab-item-inner {
+          @apply flex items-center justify-center;
+          @apply px-4 py-3 text-center text-sm font-medium cursor-pointer;
+        }
+
+        &.active {
+          @apply border-b-2 border-b-primary;
+        }
+      }
+    }
+
+    .tab-panel {
+      @apply bg-white;
+      @apply border-t-0 rounded-b-[10px];
+    }
+  }
+}

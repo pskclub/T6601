@@ -1,0 +1,29 @@
+@layer components {
+  .pagination-component {
+    @apply flex items-center gap-1;
+
+    .page-btn {
+      @apply text-sm flex justify-center items-center cursor-pointer;
+
+      &.navigation {
+        @apply p-1;
+      }
+
+      &.number {
+        @apply px-3 py-1.5 text-sm hover:bg-primary hover:bg-gray-200 rounded;
+      }
+
+      &.active {
+        @apply bg-primary text-white hover:text-black;
+      }
+
+      &.disabled {
+        @apply pointer-events-none;
+      }
+
+      &.hide {
+        @apply hidden;
+      }
+    }
+  }
+}

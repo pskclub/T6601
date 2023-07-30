@@ -1,0 +1,93 @@
+@layer components {
+  .table-component {
+    &.dark-head {
+      .table-header {
+        @apply bg-dark border-0 #{!important};
+      }
+
+      th:first-child {
+        border-radius: 10px 0 0 10px;
+      }
+
+      th:last-child {
+        border-radius: 0 10px 10px 0;
+      }
+
+      .table-header-column {
+        @apply text-white #{!important};
+      }
+    }
+
+    .table-wrapper {
+      @apply min-w-full overflow-x-auto bg-light;
+
+      .table {
+        @apply table-auto min-w-full bg-white;
+
+        .table-header {
+          @apply border-b;
+
+          .table-header-column {
+            @apply px-4 py-4 text-left text-dark text-sm font-bold whitespace-nowrap;
+          }
+
+          .checkbox {
+            @apply w-12;
+          }
+        }
+
+        .table-body {
+          @apply bg-white;
+
+          .table-body-row {
+            @apply h-14 text-sm font-semibold border-b border-gray-border py-4;
+          }
+
+          .checkbox {
+            @apply w-12 text-center;
+          }
+        }
+      }
+
+      .table-status {
+        @apply bg-white;
+      }
+    }
+
+    .table-top-pagination {
+      @apply w-full flex items-center justify-between px-4 py-2 bg-light border-b;
+
+      .top-pagination {
+        @apply flex items-center ml-4;
+
+        p {
+          @apply text-sm text-gray mx-4 whitespace-nowrap;
+        }
+      }
+    }
+
+    .table-bottom-pagination {
+      @apply flex justify-between items-center py-4;
+
+      p {
+        @apply text-sm ml-4 text-gray;
+      }
+    }
+  }
+
+  .column-action {
+    @apply flex items-center justify-end mx-4;
+
+    .action-icon-wrapper {
+      @apply flex items-center justify-center cursor-pointer;
+
+      .icon {
+        @apply text-primary text-lg;
+      }
+
+      p {
+        @apply ml-2 font-normal;
+      }
+    }
+  }
+}

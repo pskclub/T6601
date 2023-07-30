@@ -1,0 +1,92 @@
+############################
+# OS X
+############################
+
+.DS_Store
+.AppleDouble
+.LSOverride
+.Spotlight-V100
+.Trashes
+._*
+
+
+############################
+# Linux
+############################
+
+*~
+
+
+############################
+# Windows
+############################
+
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msm
+*.msp
+
+############################
+# Logs and databases
+############################
+
+.tmp
+*.log
+*.sql
+*.sqlite
+
+############################
+# Tests
+############################
+
+testApp
+coverage
+cypress/screenshots
+cypress/videos
+
+############################
+# Example app
+############################
+
+.dev
+dist
+.nuxt
+.nitro
+.cache
+.output
+
+
+############################
+# Documentation
+############################
+
+.vscode
+.eslintcache
+.stylelintcache
+front-workspace.code-workspace
+.yarn
+.yarnrc
+
+############################
+# Node.js
+############################
+
+node_modules
+*.log*
+
+
+############################
+# Misc.
+############################
+
+.idea
+nbproject
+.env
+auto-imports.d.ts
+/test-results/
+/playwright-report/
+/playwright/.cache/

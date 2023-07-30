@@ -1,0 +1,5 @@
+@layer components {
+  .checkbox-control {
+    @apply h-5 w-5 border-2 border-gray rounded cursor-pointer focus:ring-transparent ring-gray text-primary disabled:bg-gray-fill disabled:border-gray-border disabled:cursor-auto;
+  }
+}

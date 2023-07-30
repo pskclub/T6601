@@ -1,0 +1,6 @@
+coverage/
+dist/
+.nuxt/
+.output/
+CHANGELOG.md
+pnpm-lock.yaml

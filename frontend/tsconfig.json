@@ -1,0 +1,9 @@
+{
+  // https://v3.nuxtjs.org/concepts/typescript
+  "extends": "./.nuxt/tsconfig.json",
+  "compilerOptions": {
+    "useUnknownInCatchVariables": false,
+    "types": ["@nuxt/types", "@nuxtjs/i18n", "vitest/globals"]
+  },
+  "exclude": ["node_modules"]
+}

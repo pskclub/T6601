@@ -1,0 +1,242 @@
+{
+	"info": {
+		"_postman_id": "ce018728-7a7d-4b13-9268-7061c471a12c",
+		"name": "post",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26265981"
+	},
+	"item": [
+		{
+			"name": "/posts",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{TOKEN}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{BASE_API}}/posts",
+					"host": [
+						"{{BASE_API}}"
+					],
+					"path": [
+						"posts"
+					],
+					"query": [
+						{
+							"key": "order_by",
+							"value": "count(post_votes.id) DESC",
+							"disabled": true
+						},
+						{
+							"key": "order_by",
+							"value": "posts.created_at DESC",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/posts/:id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{TOKEN}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{BASE_API}}/posts/191f9164-4202-4d77-b883-0c042d3ebb88",
+					"host": [
+						"{{BASE_API}}"
+					],
+					"path": [
+						"posts",
+						"191f9164-4202-4d77-b883-0c042d3ebb88"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/posts/:id/votes",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{TOKEN}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{BASE_API}}/posts/191f9164-4202-4d77-b883-0c042d3ebb88/votes",
+					"host": [
+						"{{BASE_API}}"
+					],
+					"path": [
+						"posts",
+						"191f9164-4202-4d77-b883-0c042d3ebb88",
+						"votes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/posts/:id",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{TOKEN}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{BASE_API}}/posts/b9d8e788-b44c-4a60-a9ef-7b0529ebea35",
+					"host": [
+						"{{BASE_API}}"
+					],
+					"path": [
+						"posts",
+						"b9d8e788-b44c-4a60-a9ef-7b0529ebea35"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/posts/:id",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{TOKEN}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_API}}/posts/b9d8e788-b44c-4a60-a9ef-7b0529ebea35",
+					"host": [
+						"{{BASE_API}}"
+					],
+					"path": [
+						"posts",
+						"b9d8e788-b44c-4a60-a9ef-7b0529ebea35"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/posts",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{TOKEN}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"test2\",\r\n    \"description\": \"test2 desc\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_API}}/posts",
+					"host": [
+						"{{BASE_API}}"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/posts/:id/votes",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{TOKEN}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{BASE_API}}/posts/6e76fd66-2ebf-4195-8f0b-fdc265d9aae6/votes",
+					"host": [
+						"{{BASE_API}}"
+					],
+					"path": [
+						"posts",
+						"6e76fd66-2ebf-4195-8f0b-fdc265d9aae6",
+						"votes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/posts/:id/close-toggle",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{TOKEN}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"is_closed\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_API}}/posts/c1e4c1f3-a26d-4efe-bc42-ffbd76d41f10/close-toggle",
+					"host": [
+						"{{BASE_API}}"
+					],
+					"path": [
+						"posts",
+						"c1e4c1f3-a26d-4efe-bc42-ffbd76d41f10",
+						"close-toggle"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

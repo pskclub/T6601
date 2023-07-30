@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Prompt:wght@300;400;500;600&display=swap";
+
+@import "base/typo";
+@import "base/form";
+
+@import "components/button";
+@import "components/sidebar";
+@import "components/form/form";
+@import "components/tab";
+@import "components/table";
+@import "components/pagination";
+@import "components/common";
+@import "components/modal";
+@import "components/dialog";
+@import "components/notification";
+@import "components/list";
+@import "components/steps";
+@import "components/card";
+@import "components/icon";
+
+@import "app";
+@import "components/alert";
