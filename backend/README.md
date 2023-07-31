@@ -9,7 +9,7 @@ copy .env.sample .env
 $ make start
 ```
 
-# test
+# test 
 ```bash
 $ make test
 ```
