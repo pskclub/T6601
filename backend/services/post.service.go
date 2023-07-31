@@ -149,7 +149,7 @@ func (s postService) Vote(id string) (*models.Post, core.IError) {
 		return nil, s.ctx.NewError(emsgs.PostIsClosed, emsgs.PostIsClosed)
 	}
 
-	voted, ierr := repository.New[models.PostVote](s.ctx).FindOne("post_id = ? AND user_id = ?", id, s.ctx.GetUser().ID)
+	voted, ierr := repos.PostVote(s.ctx).FindOne("post_id = ? AND user_id = ?", id, s.ctx.GetUser().ID)
 	if ierr != nil {
 		if !errmsgs.IsNotFoundError(ierr) {
 			return nil, s.ctx.NewError(ierr, ierr)
@@ -166,7 +166,7 @@ func (s postService) Vote(id string) (*models.Post, core.IError) {
 		UserID:              s.ctx.GetUser().ID,
 	}
 
-	ierr = repository.New[models.PostVote](s.ctx).Create(vote)
+	ierr = repos.PostVote(s.ctx).Create(vote)
 	if ierr != nil {
 		return nil, s.ctx.NewError(ierr, ierr)
 	}

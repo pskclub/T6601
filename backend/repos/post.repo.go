@@ -20,6 +20,13 @@ var Post = func(c core.IContext, options ...PostOption) repository.IRepository[m
 	return r
 }
 
+var PostVote = func(c core.IContext) repository.IRepository[models.PostVote] {
+	// Create a new repository instance
+	r := repository.New[models.PostVote](c)
+
+	return r
+}
+
 func PostWithVote() PostOption {
 	return func(r repository.IRepository[models.Post], c core.IContext) {
 		r.Select("posts.*, count(post_votes.id) as vote_count,CASE  WHEN post_votes2.id IS NULL THEN false ELSE true END AS is_voted").
