@@ -55,7 +55,6 @@ func (suite *PostServiceSuite) TestVoteIsClosed() {
 
 	postMock := repository.NewMock[models.Post]()
 
-	// Set expectations for the Find function in the mock post repository
 	postMock.On("Preload", mock.Anything).Return(postMock)
 	postMock.On("Where", mock.Anything, mock.Anything).Return(postMock)
 	postMock.On("FindOne").Return(post, nil)
@@ -66,7 +65,6 @@ func (suite *PostServiceSuite) TestVoteIsClosed() {
 
 	svc := NewPostService(suite.ctx)
 
-	// Set the expectations for the mock UserService
 	postRes, ierr := svc.Vote(id)
 
 	// Assert the result
